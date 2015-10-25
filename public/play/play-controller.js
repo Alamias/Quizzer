@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('hello2')
+  angular.module('quizzer')
     .controller('PlayController', PlayController);
 
   PlayController.$inject = ['$stateParams', 'QuizService', '$location'];

@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  angular.module('hello2')
+  angular.module('quizzer')
     .config(['$stateProvider', '$urlRouterProvider',
       function ($stateProvider, $urlRouterProvider) {
         console.log("in router");
