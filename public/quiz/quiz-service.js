@@ -16,22 +16,15 @@
     // returns a list of all of the quizzes
     function getQuizzes() {
       var deferred = $q.defer();
-      console.log("1");
 
-      $timeout(function () {
-        console.log("3");
-        deferred.resolve(quiz_list);
-      });
-
-      //$http.get(url)
-      //  .success(function (data) {
-      //    deferred.resolve(data);
-      //  })
-      //  .error(function (data, status) {
-      //    console.log('Error while making call');
-      //    deferred.reject();
-      //  });
-      console.log("2");
+      $http.get(url)
+        .success(function (data) {
+          deferred.resolve(data);
+        })
+        .error(function (data, status) {
+          console.log('Error while making call');
+          deferred.reject();
+        });
       return deferred.promise;
     }
 
@@ -40,22 +33,14 @@
       var myUrl = url + '/' + id;
       var deferred = $q.defer();
 
-      $timeout(function () {
-        var quiz = quiz_list.find(function(obj){
-          return obj._id === id;
+      $http.get(myUrl)
+        .success(function (data) {
+          deferred.resolve(data);
+        })
+        .error(function (data, status) {
+          console.log("Error while making call");
+          deferred.reject();
         });
-        deferred.resolve(quiz);
-      });
-
-
-      //$http.get(myUrl)
-      //  .success(function (data) {
-      //    deferred.resolve(data);
-      //  })
-      //  .error(function (data, status) {
-      //    console.log("Error while making call");
-      //    deferred.reject();
-      //  });
       return deferred.promise;
     }
   }

@@ -15,9 +15,9 @@
 
     QuizService.getQuizzes().then(function (quizzes) {
       vm.quizzes = quizzes;
-      console.log("Got Data: " + JSON.stringify(quizzes));
+    }, function () {
+      console.log("getQuizzes failed");
     });
   }
-
   console.log("Hello QuizListController");
 }());
