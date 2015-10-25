@@ -23,7 +23,7 @@
             controller: "AboutController as about"
           });
 
-        $urlRouterProvider.otherwise('/about');
+        $urlRouterProvider.otherwise('/quiz');
       }]);
 
   console.log("routes!");
