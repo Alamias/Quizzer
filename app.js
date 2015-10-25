@@ -63,29 +63,7 @@ app.use(function(err, req, res, next) {
 // this is temporary code
 // delete it later
 
-var dbConnect = process.env.dbConnect;
-var mongoose = require('mongoose');
-mongoose.connect(dbConnect);
-var db = mongoose.connection;
-db.once('open', function(err){
 
-  console.log("Db opened: " + err);
-});
-
-var quizSchema = new mongoose.Schema({
-  title: String,
-  tagLine: String,
-  added: Date,
-  rating: Number,
-  _id: mongoose.Schema.ObjectId,
-  tags: [String]
-});
-
-var quiz = mongoose.model('Quiz',quizSchema, 'quizList');
-
-quiz.find({}, function(err, quiz){
-  console.log('quiz: ' + JSON.stringify(quiz));
-});
 
 
 
